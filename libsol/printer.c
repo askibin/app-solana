@@ -27,12 +27,15 @@ int print_token_amount(
                 out[i] = '.';
                 i += 1;
             }
+            
+            // avoid off-by-one
+            BAIL_IF(i == outlen);
+
             out[i] = (dVal % 10) + '0';
             dVal /= 10;
             i += 1;
         } while ((dVal > 0 || i < min_chars) && i < outlen);
     }
-    BAIL_IF(i >= outlen);
     // Reverse order
     int j, k;
     for (j = 0, k = i - 1; j < k; j++, k--) {
