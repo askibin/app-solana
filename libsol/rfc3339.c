@@ -59,7 +59,7 @@ rdn_to_ymd(uint32_t rdn, uint16_t *yp, uint16_t *mp, uint16_t *dp) {
 
 #define EPOCH INT64_C(62135683200)  /* 1970-01-01 00:00:00 */
 
-int rfc3339_format(char *dst, size_t len, int64_t seconds) {
+int rfc3339_format(char *dst, size_t len, uint64_t seconds) {
     unsigned char *p;
     uint64_t sec;
     uint32_t rdn, v;
